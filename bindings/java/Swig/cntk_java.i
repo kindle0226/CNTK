@@ -2,7 +2,7 @@
 #undef UNUSED
 %}
 
-%module(directors="1") Utils
+%module(directors="1") CNTKLib
 //%feature("autodoc", "1");
 
 %include <stl.i>
@@ -83,12 +83,12 @@
         if (o == null) return false;
         DeviceDescriptor p = (DeviceDescriptor)o;
         if (p == null) return false;
-        return Utils.AreEqualDeviceDescriptor(this, p);
+        return CNTKLib.AreEqualDeviceDescriptor(this, p);
     }
 
     public boolean equals(DeviceDescriptor p) {
         if (p == null) return false;
-        return Utils.AreEqualDeviceDescriptor(this, p);
+        return CNTKLib.AreEqualDeviceDescriptor(this, p);
     }
 
     @Override
@@ -104,12 +104,12 @@
         if (o == null) return false;
         Axis p = (Axis)o;
         if (p == null) return false;
-        return Utils.AreEqualAxis(this, p);
+        return CNTKLib.AreEqualAxis(this, p);
     }
 
     public boolean equals(Axis p) {
         if (p == null) return false;
-        return Utils.AreEqualAxis(this, p);
+        return CNTKLib.AreEqualAxis(this, p);
     }
 
     @Override
@@ -160,7 +160,7 @@
         {
             varVect.add(varVect.get(i));
         }
-        return Utils.Combine(varVect);
+        return CNTKLib.Combine(varVect);
     }
 
     /*public void evaluate(java.util.HashMap<Variable, Value> arguments, java.util.HashMap<Variable, Value> outputs, DeviceDescriptor computeDevice) {
@@ -193,12 +193,12 @@
         if (o == null) return false;
         Variable p = (Variable)o;
         if (p == null) return false;
-        return Utils.AreEqualVariable(this, p);
+        return CNTKLib.AreEqualVariable(this, p);
     }
 
     public boolean equals(Variable p) {
         if (p == null) return false;
-        return Utils.AreEqualVariable(this, p);
+        return CNTKLib.AreEqualVariable(this, p);
     }
 
     //add back once GetHashValue is defined for SWIG and not just SWIGCSHARP
@@ -225,12 +225,12 @@
         if (o == null) return false;
         NDShape p = (NDShape)o;
         if (p == null) return false;
-        return Utils.AreEqualShape(this, p);
+        return CNTKLib.AreEqualShape(this, p);
     }
 
     public boolean equals(NDShape p) {
         if (p == null) return false;
-        return Utils.AreEqualShape(this, p);
+        return CNTKLib.AreEqualShape(this, p);
     }
 
     @Override
