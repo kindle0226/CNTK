@@ -779,6 +779,11 @@ namespace CNTK
         template<typename ElementType>
         ElementType AsScalar() const;
 
+        ///
+        /// Return a string summary of the NDArrayView.
+        ///
+        CNTK_API std::wstring AsString() const;
+
     private:
         // Disallow copy and move construction and assignment
         NDArrayView(const NDArrayView&) = delete; NDArrayView& operator=(const NDArrayView&) = delete; NDArrayView& operator=(NDArrayView&&) = delete; NDArrayView(NDArrayView&& other) = delete;
@@ -2689,6 +2694,8 @@ namespace CNTK
         ///
         template<typename ElementType>
         ElementType AsScalar() const;
+
+        CNTK_API std::wstring AsString() const;
 
     private:
         template <typename ElementType>

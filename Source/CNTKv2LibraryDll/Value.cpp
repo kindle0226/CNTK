@@ -592,6 +592,16 @@ namespace CNTK
         return Data()->AsScalar<ElementType>();
     }
 
+    std::wstring Value::AsString() const
+    {
+        wstringstream wss;
+        if (!Data())
+            wss << L"Value(???)";
+        else
+            wss << L"Value(" << Data()->AsString() << L")";
+        return wss.str();
+    }
+
     void PackedValue::Unpack() const
     {
         if (m_packedDataLayout && (m_packedDataLayout->GetNumTimeSteps() != 1) && (m_packedDataLayout->GetNumSequences() != 1) && Internal::IsAutomaticUnpackingOfPackedValuesDisabled())
