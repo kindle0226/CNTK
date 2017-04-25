@@ -51,5 +51,5 @@ prepare_data || cleanup
 
 echo === Running training
 # Usage: cntkrun <CNTK config file name> <additional CNTK args>
-cntkrun fcn.cntk
+cntkmpirun "-n 2" fcn.cntk
 cleanup
