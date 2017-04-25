@@ -592,13 +592,18 @@ namespace CNTK
         return Data()->AsScalar<ElementType>();
     }
 
+    /* virtual */ bool Value::IsValid() const
+    {
+        return !!m_data;
+    }
+
     std::wstring Value::AsString() const
     {
         wstringstream wss;
-        if (!Data())
-            wss << L"Value(???)";
+        if (IsValid())
+            wss << L"Value(" << Shape().AsString() << ", " << DeviceKindName(Device().Type()) << L")";
         else
-            wss << L"Value(" << Data()->AsString() << L")";
+            wss << L"Value(???)";
         return wss.str();
     }
 

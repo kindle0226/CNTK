@@ -261,14 +261,10 @@ namespace CNTK
         ///
         CNTK_API static const std::vector<DeviceDescriptor>& AllDevices();
 
-        std::wstring AsString() const
-        {
-            std::wstring str = DeviceKindName(Type());
-            if (Type() == DeviceKind::GPU)
-                str = str + L"[" + std::to_wstring(Id()) + L"]";
-
-            return str;
-        }
+        ///
+        /// Return a string summary of this device
+        ///
+        CNTK_API std::wstring AsString() const;
 
     private:
         DeviceDescriptor(unsigned int deviceId, DeviceKind deviceType)
@@ -2695,6 +2691,15 @@ namespace CNTK
         template<typename ElementType>
         ElementType AsScalar() const;
 
+
+        ///
+        /// Returns whether this object has been invalidated (by another forward and/or backward pass)
+        ///
+        CNTK_API virtual bool IsValid() const;
+
+        ///
+        /// Returns a string summary of this Value object
+        ///
         CNTK_API std::wstring AsString() const;
 
     private:
@@ -4843,6 +4848,13 @@ namespace CNTK
         MinibatchData(ValuePtr value, size_t numSequences, size_t numSamples, bool sweepEnd) 
             : data(value), numberOfSequences(numSequences), numberOfSamples(numSamples), sweepEnd(sweepEnd) 
         {}
+
+        std::wstring AsString() const
+        {
+            std::wstringstream wss;
+            wss << L"MinibatchData(data=" << data->AsString() << L", samples=" << numberOfSamples << L", seqs=" << numberOfSequences << L")";
+            return wss.str();
+        }
 
         ValuePtr data;
         size_t numberOfSequences;

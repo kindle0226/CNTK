@@ -502,7 +502,8 @@ namespace CNTK
     std::wstring NDArrayView::AsString() const
     {
         wstringstream wss;
-        wss << L"NDArrayView(" << m_viewShape.AsString() << L", " << m_device.AsString() << L")";
+        std::wstring device = DeviceKindName(m_device.Type());
+        wss << L"NDArrayView(" << m_viewShape.AsString() << L", " << device << L")";
         return wss.str();
     }
 

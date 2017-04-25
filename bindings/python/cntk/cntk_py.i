@@ -1858,6 +1858,7 @@ DATA_TYPE.__eq__ = lambda a,b: (a is not None and b is not None and EQ(a,b)) or 
 %py_repr_for(StreamInformation)
 %py_repr_for(NDArrayView)
 %py_repr_for(Value)
+%py_repr_for(MinibatchData)
 
 %py_eq_for(Variable, Variable_eq)
 %py_hash_for(Variable)
