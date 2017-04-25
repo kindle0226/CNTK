@@ -53,13 +53,6 @@ class DeviceDescriptor(cntk_py.DeviceDescriptor):
         '''
         return super(DeviceDescriptor, self).type()
 
-    #def __str__(self):
-    #    if self.type() == DeviceKind.GPU:
-    #        details = 'GPU %i' % self.id()
-    #    else:
-    #        details = 'CPU'
-    #    return details
-
     def is_locked(self):
         '''
         Returns `True` if another CNTK process already holds an exclusive lock
