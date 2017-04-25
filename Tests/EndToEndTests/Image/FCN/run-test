@@ -50,7 +50,6 @@ function cleanup
 prepare_data || cleanup
 
 echo === Running training
-DeleteModelsAfterTest=1
 # Usage: cntkrun <CNTK config file name> <additional CNTK args>
 cntkrun fcn.cntk
 cleanup
