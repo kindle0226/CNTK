@@ -236,7 +236,7 @@ ifeq ("$(BUILDTYPE)","debug")
     GENCODE_FLAGS := $(GENCODE_SM30)
   endif
 
-  CXXFLAGS += -g
+  CXXFLAGS += -ggdb -O0
   LDFLAGS += -rdynamic
   COMMON_FLAGS += -D_DEBUG -DNO_SYNC
   CUFLAGS += -O0 -g -use_fast_math -lineinfo  $(GENCODE_FLAGS)

@@ -82,7 +82,12 @@ public class Main {
 
         // Get evaluate result as dense output
         FloatVectorVector outputBuffer = new FloatVectorVector();
-        outputDataMap.getitem(outputVar).CopyVariableValueToFloat(outputVar, outputBuffer);
+        Value output = outputDataMap.getitem(outputVar);
+        System.out.println(output.getClass());
+        System.out.println("Waiting");
+        System.in.read();
+        System.out.println("Continuing");
+        output.CopyVariableValueToFloat(outputVar, outputBuffer);
 
         float[] trueResults = {
                 -1.887479f, -4.768533f,
